@@ -6,7 +6,7 @@ import { FaucetClient } from "@cosmjs/faucet-client";
 
 // markup
 const IndexPage = () => {
-  const [wallet, setWallet] = useState<Account | undefined>(undefined);
+  const [account, setAccount] = useState<string | undefined>(undefined);
   const [client, setClient] = useState<SigningCosmWasmClient | undefined>(undefined);
   const [balance, setBalance] = useState<Coin>({ amount: "0", denom: config.feeDenom });
   const [loadingFaucet, setLoadingFaucet] = useState<boolean>(false);
@@ -14,8 +14,7 @@ const IndexPage = () => {
   const handleConnect = async () => {
     const { accounts, signingClient } = await getClient();
     const account = accounts[0].address;
-    console.log(account);
-    setWallet(account);
+    setAccount(account);
     setClient(signingClient);
 
     // hit faucet
@@ -32,13 +31,15 @@ const IndexPage = () => {
 
   return (
     <main>
-      {wallet === undefined ? (
+      {account === undefined ? (
         <button onClick={handleConnect}>Connect to Keplr</button>
       ) : (
         <div>
-          <p>Connected to address: {wallet}</p>
+          <p>Connected to address: {account}</p>
           <p>Balance: {balance.amount} {balance.denom}</p>
           { loadingFaucet && <p>Loading tokens from faucet...</p> }
+          <br/>
+          <a href="/details">Look at details</a>
         </div>
       )}
     </main>
