@@ -6,6 +6,7 @@ interface conf {
   faucetEndpoint: string;
   prefix: string;
   feeDenom: string;
+  dsrvPoapContractAddress: string;
 }
 
 export const config: conf = {
@@ -14,6 +15,7 @@ export const config: conf = {
   faucetEndpoint: "https://faucet.malaga-420.cosmwasm.com",
   prefix: "mlg",
   feeDenom: "umlg",
+  dsrvPoapContractAddress: "",
 };
 
 export const keplrChainInfo = {
