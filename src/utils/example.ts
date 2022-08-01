@@ -1,4 +1,4 @@
-import { setupWebKeplr } from "cosmwasm";
+import { GasPrice, setupWebKeplr } from "cosmwasm";
 
 interface conf {
   chainId: string;
@@ -7,15 +7,17 @@ interface conf {
   prefix: string;
   feeDenom: string;
   dsrvPoapContractAddress: string;
+  gasPrice: GasPrice;
 }
 
 export const config: conf = {
   chainId: "malaga-420",
   rpcEndpoint: "https://rpc.malaga-420.cosmwasm.com",
   faucetEndpoint: "https://faucet.malaga-420.cosmwasm.com",
-  prefix: "mlg",
+  prefix: "wasm",
   feeDenom: "umlg",
-  dsrvPoapContractAddress: "",
+  dsrvPoapContractAddress: "wasm1zeqcpm7fdeqdac8e0uuu27p8acmtp9pggdgltyc6mwt4xwqywgpspfr7rw",
+  gasPrice: GasPrice.fromString("0.05umlg"),
 };
 
 export const keplrChainInfo = {

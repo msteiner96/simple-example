@@ -1,13 +1,15 @@
-import { Secp256k1HdWallet, SigningCosmWasmClient } from "cosmwasm";
+import { GasPrice, Secp256k1HdWallet, SigningCosmWasmClient } from "cosmwasm";
 import { readFileSync } from "fs";
 import { config } from "./utils/example";
 
 const mnemonic = "fortune window route bench scan matter wrist cheese family easy salon shift";
 
 async function deploy(): Promise<void> {
-    const wallet = await Secp256k1HdWallet.fromMnemonic(mnemonic);
+    const wallet = await Secp256k1HdWallet.fromMnemonic(mnemonic, { prefix: config.prefix });
     const account = (await wallet.getAccounts())[0].address;
-    const signer = await SigningCosmWasmClient.connectWithSigner(config.rpcEndpoint, wallet);
+    console.log(account);
+    const signer = await SigningCosmWasmClient.connectWithSigner(config.rpcEndpoint, wallet, 
+        { gasPrice: config.gasPrice, prefix: config.prefix });
 
     const path = "../dsrv-poap/artifacts/dsrv_poap-aarch64.wasm";
     console.info(`Loading from ${path}...`);
