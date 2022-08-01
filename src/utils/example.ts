@@ -7,9 +7,9 @@ interface conf {
 }
 
 const config: conf = {
-  chainId: "juno-1",
+  chainId: "malaga-420",
   rpcEndpoint: "https://rpc.malaga-420.cosmwasm.com",
-  prefix: "juno",
+  prefix: "mlg",
 };
 
 export const keplrChainInfo = {
@@ -18,7 +18,7 @@ export const keplrChainInfo = {
   rpc: config.rpcEndpoint,
   rest: "https://faucet.malaga-420.cosmwasm.com",
   stakeCurrency: {
-    coinDenom: "mlg",
+    coinDenom: "MLG",
     coinMinimalDenom: "umlg",
     coinDecimals: 6,
   },
