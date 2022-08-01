@@ -20,7 +20,7 @@ export const keplrChainInfo = {
   chainId: config.chainId,
   chainName: "Malaga 420",
   rpc: config.rpcEndpoint,
-  rest: "https://faucet.malaga-420.cosmwasm.com",
+  rest: "https://api.malaga-420.cosmwasm.com",
   stakeCurrency: {
     coinDenom: "MLG",
     coinMinimalDenom: "umlg",
