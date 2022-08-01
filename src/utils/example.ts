@@ -3,13 +3,17 @@ import { setupWebKeplr } from "cosmwasm";
 interface conf {
   chainId: string;
   rpcEndpoint: string;
+  faucetEndpoint: string;
   prefix: string;
+  feeDenom: string;
 }
 
-const config: conf = {
+export const config: conf = {
   chainId: "malaga-420",
   rpcEndpoint: "https://rpc.malaga-420.cosmwasm.com",
+  faucetEndpoint: "https://faucet.malaga-420.cosmwasm.com",
   prefix: "mlg",
+  feeDenom: "umlg",
 };
 
 export const keplrChainInfo = {
