@@ -40,7 +40,7 @@ export const keplrChainInfo = {
     bech32PrefixConsPub: "wasmvalconspub",
   },
   feeCurrencies: [
-    { coinDenom: "MLG", coinMinimalDenom: "umlg", coinDecimals: 6 },
+    { coinDenom: "umlg", coinMinimalDenom: "umlg", coinDecimals: 6 },
   ],
   currencies: [{ coinDenom: "MLG", coinMinimalDenom: "umlg", coinDecimals: 6 }],
   features: ["stargate"],

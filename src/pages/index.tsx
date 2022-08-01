@@ -39,6 +39,21 @@ const IndexPage = () => {
     }
   }
 
+  const registerDsrv = async () => {
+    if (client !== undefined && account !== undefined){
+      const poap = new DsrvPoapClient(client, account, config.dsrvPoapContractAddress);
+      await poap.registerEvent({
+        name: "DSRV Hacker House #2",
+        description: "Even more.",
+        image: "https://miro.medium.com/max/1400/1*R8chOI2RB3fwuInIBB28Gg.jpeg",
+        startTime: 1659322235,
+        endTime: 1659520235,
+      });
+      const events = await poap.listAllEvents();
+      setEvents(events.events);
+    }
+  }
+
   return (
     <main>
       {account === undefined ? (
@@ -50,8 +65,9 @@ const IndexPage = () => {
           { loadingFaucet && <p>Loading tokens from faucet...</p> }
           <br/>
           <p>Events: {events.length} <button onClick={loadEvents}>Load Events</button><ul> 
-            { events.map(evt => <li>{evt.name} <img src="{evt.image}"></img></li>) }
+            { events.map(evt => <li>{evt.name} <img src={evt.image} width="600" height="480"></img></li>) }
           </ul></p>
+          <p><button onClick={registerDsrv}>Register DSRV</button></p>
         </div>
       )}
     </main>
