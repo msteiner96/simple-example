@@ -8,6 +8,8 @@
     "gatsby"
   ],
   "scripts": {
+    "ts-build": "tsc",
+    "deploy": "node ./build/src/deploy.js",
     "develop": "gatsby develop",
     "start": "gatsby develop",
     "build": "gatsby build",
@@ -20,7 +22,8 @@
     "cosmwasm": "^1.1.1",
     "gatsby": "^4.19.2",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "react-dom": "^18.1.0",
+    "ts-node": "^9.1.1"
   },
   "devDependencies": {
     "@types/node": "^17.0.45",

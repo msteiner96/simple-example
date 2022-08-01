@@ -46,8 +46,8 @@ export const keplrChainInfo = {
 };
 
 export async function getClient() {
-  await window.keplr.experimentalSuggestChain(keplrChainInfo);
-  const offlineSigner = window.getOfflineSignerOnlyAmino(config.chainId);
+  await (window as any).keplr.experimentalSuggestChain(keplrChainInfo);
+  const offlineSigner = (window as any).getOfflineSignerOnlyAmino(config.chainId);
   const accounts = await offlineSigner
     .getAccounts()
     .catch((e) => console.log(e));
